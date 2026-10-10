@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta
+      name="description"
+      content="Join the Who Be This? early-access list and be among the first to play."
+    />
+    <title>Who Be This? — Get Early Access</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b1020;
+        --panel: #111a2e;
+        --yellow: #facc15;
+        --text: #f9fafb;
+        --muted: #aab4c8;
+        --line: #29344a;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: radial-gradient(
+          ellipse at 50% 0%,
+          #202d4d 0%,
+          var(--bg) 55%
+        );
+        color: var(--text);
+      }
+      .wrap {
+        width: min(1080px, 100%);
+        margin: auto;
+        padding: 24px;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-weight: 950;
+        letter-spacing: -0.045em;
+        font-size: 18px;
+      }
+      .mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 13px;
+        display: grid;
+        place-items: center;
+        background: var(--yellow);
+        color: #111827;
+        font-size: 25px;
+        font-weight: 1000;
+      }
+      .pill {
+        border: 1px solid #49516a;
+        color: #e5e7eb;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+        gap: 50px;
+        padding: 65px 0 52px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--yellow);
+        text-transform: uppercase;
+        font-weight: 850;
+        letter-spacing: 0.14em;
+        font-size: 11px;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--yellow);
+        border-radius: 50%;
+        box-shadow: 0 0 14px var(--yellow);
+      }
+      h1 {
+        font-size: clamp(48px, 7vw, 82px);
+        line-height: 0.98;
+        letter-spacing: -0.075em;
+        margin: 18px 0;
+        max-width: 650px;
+      }
+      h1 span {
+        color: var(--yellow);
+      }
+      .intro {
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.75;
+        max-width: 520px;
+      }
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 24px;
+      }
+      .feature {
+        padding: 9px 12px;
+        background: #ffffff0a;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #e5e7eb;
+        font-size: 12px;
+      }
+      .visual {
+        min-height: 300px;
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+      .orbit {
+        width: min(320px, 75vw);
+        aspect-ratio: 1;
+        border: 1px solid #65708b66;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+      .orbit:before,
+      .orbit:after {
+        content: "";
+        position: absolute;
+        border: 1px dashed #65708b66;
+        border-radius: 50%;
+        inset: 24px;
+      }
+      .orbit:after {
+        inset: 50px;
+      }
+      .question {
+        width: 148px;
+        height: 148px;
+        border-radius: 42px;
+        background: var(--yellow);
+        color: #111827;
+        display: grid;
+        place-items: center;
+        font-size: 105px;
+        font-weight: 1000;
+        line-height: 1;
+        transform: rotate(-7deg);
+        box-shadow: 0 20px 65px #facc1530;
+        z-index: 1;
+      }
+      .float {
+        position: absolute;
+        z-index: 2;
+        background: #1a2740;
+        border: 1px solid #495775;
+        border-radius: 14px;
+        padding: 11px 14px;
+        font-weight: 850;
+        font-size: 11px;
+        box-shadow: 0 12px 30px #0005;
+      }
+      .f1 {
+        top: 18%;
+        left: -2%;
+        transform: rotate(-8deg);
+      }
+      .f2 {
+        bottom: 17%;
+        right: -3%;
+        transform: rotate(7deg);
+      }
+      .f3 {
+        top: 8%;
+        right: 8%;
+        color: var(--yellow);
+        font-size: 20px;
+      }
+      .card {
+        background: linear-gradient(160deg, #17223a, #101727);
+        border: 1px solid #34415b;
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: 0 24px 80px #0005;
+        max-width: 540px;
+        margin-left: auto;
+        width: 100%;
+      }
+      .card h2 {
+        margin: 0 0 8px;
+        font-size: 25px;
+        letter-spacing: -0.04em;
+      }
+      .sub {
+        margin: 0 0 23px;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 14px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        color: #e5e7eb;
+        font-weight: 750;
+        margin: 15px 0 8px;
+      }
+      input {
+        display: block;
+        width: 100%;
+        padding: 14px 15px;
+        border: 1px solid #3b4760;
+        background: #0b1222;
+        border-radius: 12px;
+        color: white;
+        outline: none;
+        font: inherit;
+        font-size: 14px;
+      }
+      input:focus {
+        border-color: var(--yellow);
+        box-shadow: 0 0 0 3px #facc1520;
+      }
+      button {
+        width: 100%;
+        border: 0;
+        border-radius: 12px;
+        background: var(--yellow);
+        color: #111827;
+        padding: 15px 18px;
+        font-weight: 950;
+        font-size: 15px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition:
+          transform 0.15s,
+          opacity 0.15s;
+      }
+      button:hover {
+        transform: translateY(-1px);
+      }
+      button:disabled {
+        opacity: 0.65;
+        cursor: wait;
+        transform: none;
+      }
+      .privacy {
+        color: #929db3;
+        font-size: 11px;
+        line-height: 1.55;
+        margin: 13px 0 0;
+      }
+      .status {
+        display: none;
+        margin-top: 14px;
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .status.ok {
+        display: block;
+        color: #bbf7d0;
+        background: #14532d55;
+        border: 1px solid #166534;
+      }
+      .status.err {
+        display: block;
+        color: #fecaca;
+        background: #7f1d1d55;
+        border: 1px solid #991b1b;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 20px 0 8px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: #7f8aa3;
+        font-size: 12px;
+      }
+      .honeypot {
+        position: absolute;
+        left: -10000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      @media (max-width: 760px) {
+        .wrap {
+          padding: 18px;
+        }
+        main {
+          grid-template-columns: 1fr;
+          gap: 26px;
+          padding: 48px 0 34px;
+        }
+        .visual {
+          min-height: 235px;
+          grid-row: 1;
+        }
+        .orbit {
+          width: 230px;
+        }
+        .question {
+          width: 108px;
+          height: 108px;
+          font-size: 78px;
+          border-radius: 31px;
+        }
+        .f1 {
+          left: -4%;
+        }
+        .f2 {
+          right: -4%;
+        }
+        .card {
+          padding: 22px;
+          margin: auto;
+        }
+        h1 {
+          font-size: clamp(48px, 13vw, 72px);
+        }
+        .intro {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav>
+        <div class="brand">
+          <div class="mark">?</div>
+          <span>WHO BE THIS?</span>
+        </div>
+        <div class="pill">COMING SOON</div>
+      </nav>
+      <main>
+        <section>
+          <div class="eyebrow">
+            <span class="dot"></span>The guessing game is coming
+          </div>
+
+          <h1>Somebody sent am.<br /><span>Who be this?</span></h1>
+
+          <p class="intro">
+            Share your link and let people send you anonymous messages. Your
+            job? Guess who sent each one. Get it right and prove say you sabi
+            your people. Get it wrong? Na disappointment dey wait for you. 👀
+          </p>
+
+          <div class="features">
+            <span class="feature">🤫 Anonymous messages</span>
+            <span class="feature">🕵️ Guess who sent am</span>
+            <span class="feature">😈 Risk the disappointment</span>
+          </div>
+        </section>
+
+        <section class="visual" aria-hidden="true">
+          <div class="orbit">
+            <div class="question">?</div>
+            <div class="float f1">WHO BE THIS?</div>
+            <div class="float f2">NO GOOGLE O!</div>
+            <div class="float f3">👀</div>
+          </div>
+        </section>
+        <section class="card" id="join">
+          <h2>Get early access</h2>
+          <p class="sub">
+            Be first to know when the game goes live. No spam — just launch
+            updates.
+          </p>
+          <form id="waitlistForm">
+            <label for="name">Your name</label
+            ><input
+              id="name"
+              name="name"
+              autocomplete="name"
+              placeholder="What should we call you?"
+              required
+              maxlength="100"
+            />
+            <label for="email">Email address</label
+            ><input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+              maxlength="200"
+            />
+            <label for="whatsapp"
+              >WhatsApp number
+              <span style="color: #929db3; font-weight: 400"
+                >(optional)</span
+              ></label
+            ><input
+              id="whatsapp"
+              name="whatsapp"
+              type="tel"
+              autocomplete="tel"
+              placeholder="e.g. 08012345678"
+              maxlength="30"
+            />
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">Leave this field empty</label
+              ><input
+                id="website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+            <button id="submitBtn" type="submit">Join the waitlist →</button>
+            <p class="privacy">
+              By joining, you agree to be contacted about the Who Be This?
+              launch. Your details will be used for launch updates only.
+            </p>
+            <div
+              id="status"
+              class="status"
+              role="status"
+              aria-live="polite"
+            ></div>
+          </form>
+        </section>
+      </main>
+      <footer>
+        <span>© <span id="year"></span> Who Be This?</span
+        ><span>Built for people who sabi faces.</span>
+      </footer>
+    </div>
+    <script>
+      // Paste your deployed Google Apps Script Web App URL here (must end in /exec).
+      const GOOGLE_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbygs1saMsAQI8lRjVDrwxul0FsciHDvGelQwBaC7EyMk-uj9biXCOfJ3dh0IYld3X_c/exec";
+      const form = document.getElementById("waitlistForm");
+      const btn = document.getElementById("submitBtn");
+      const statusBox = document.getElementById("status");
+      document.getElementById("year").textContent = new Date().getFullYear();
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        statusBox.className = "status";
+        statusBox.textContent = "";
+        if (document.getElementById("website").value.trim()) return;
+        if (GOOGLE_SCRIPT_URL.includes("PASTE_YOUR_")) {
+          statusBox.className = "status err";
+          statusBox.textContent =
+            "The waitlist is not connected yet. Please try again later.";
+          return;
+        }
+        const data = {
+          name: document.getElementById("name").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          whatsapp: document.getElementById("whatsapp").value.trim(),
+        };
+        if (!data.name || !data.email) {
+          statusBox.className = "status err";
+          statusBox.textContent =
+            "Please enter your name and a valid email address.";
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = "Joining…";
+        try {
+          // Apps Script cross-origin responses are not reliably readable from static sites.
+          // no-cors sends the request but cannot confirm that the Sheet saved it; test the Sheet after setup.
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(data),
+          });
+          statusBox.className = "status ok";
+          statusBox.textContent =
+            "Thanks for your interest! Your signup request was sent. We're getting ready for launch.";
+          form.reset();
+        } catch (err) {
+          statusBox.className = "status err";
+          statusBox.textContent =
+            "Something went wrong sending your signup. Please try again.";
+        } finally {
+          btn.disabled = false;
+          btn.textContent = "Join the waitlist →";
+        }
+      });
+    </script>
+  </body>
+</html>
